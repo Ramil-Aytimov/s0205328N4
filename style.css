@@ -1,1 +1,51 @@
+/* Дополнения к Bootstrap: только цвета и мелочи.
+   Отступы и сетка реализованы классами Bootstrap в index.html */
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.1rem;
+}
+
+/* Шапка и подвал в цветах из задания 3 */
+.site-header {
+    background: #44c4ff;
+    border-color: #5d88b4 !important;
+}
+
+.site-footer {
+    background: #76a5d3;
+    border-color: #5d88b4 !important;
+}
+
+.site-header .navbar-brand,
+.site-header .nav-link {
+    color: #111;
+}
+
+/* Чтобы заголовки не прятались под шапкой при переходе по якорю */
+section[id] {
+    scroll-margin-top: 1rem;
+}
+
+/* Картинка с map имеет фиксированные координаты, поэтому не масштабируется */
+.map-wrap {
+    overflow-x: auto;
+}
+
+.map-wrap img {
+    max-width: none;
+}
+
+.table tbody tr:nth-child(odd) {
+    --bs-table-bg: #b7e4a7;
+}
+
+/* зелёный */
+.table tbody tr:nth-child(even) {
+    --bs-table-bg: #fff3a3;
+}
+
+/* жёлтый */
