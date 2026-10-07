@@ -1,292 +1,407 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 
+
 <head>
     <meta charset="UTF-8">
+    <!-- Ширина страницы = ширине экрана устройства, масштаб 100% (нужно для адаптивности на телефонах) -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Задание 4. Bootstrap</title>
-    <!-- Bootstrap CSS -->
+    <title>Задание 4</title>
+    <!-- Подключение стилей Bootstrap 5.3.3 с CDN (rel="stylesheet" означает "это файл стилей") -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Собственные стили -->
+    <!-- Подключение собственных стилей (идёт после Bootstrap, поэтому может переопределять его правила) -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<!-- Видимая часть страницы. d-flex включает Flexbox, flex-column ставит блоки столбиком (шапка, контент, подвал),
+     min-vh-100 задаёт минимальную высоту, равную высоте окна, чтобы подвал был прижат вниз -->
 
-<header class="site-header border-bottom">
-    <nav class="navbar navbar-expand-md" aria-label="Основное меню">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-3" href="#links" aria-label="Главная страница">
-                <img src="Логотип_КубГУ.png" alt="Лого КубГУ" width="56" height="56">
-                <span class="fs-5">Задание 4</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainMenu" aria-controls="mainMenu"
-                    aria-expanded="false" aria-label="Открыть меню">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav ms-md-auto">
-                    <li class="nav-item"><a class="nav-link" href="#links">Список ссылок</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#table-section">Таблица</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#form-section">Форма</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+<body class="d-flex flex-column  min-vh-100">
 
-<main class="container py-4 flex-grow-1">
-    <!-- На телефоне порядок: таблица, ссылки, форма. С md и шире: ссылки, таблица, форма -->
-    <div class="row">
 
-        <section id="links" class="col-12 order-2 order-md-1 mb-4">
-            <h1 class="h2 mb-3">Задание 1: Гиперссылки и форма</h1>
-            <h2 class="h3 mb-3">Список гиперссылок</h2>
-            <ul class="ps-4">
-                <!-- 1 -->
-                <li class="mb-2">
-                    <a href="http://kubsu.ru/">1. Абсолютная гиперссылка на главную страницу kubsu.ru (http)</a>
-                </li>
-                <!-- 2 -->
-                <li class="mb-2">
-                    <a href="https://kubsu.ru/">2. Абсолютная гиперссылка на главную страницу kubsu.ru (https)</a>
-                </li>
-                <!-- 3 -->
-                <li class="mb-2">
-                    3. Ссылка-изображение:
-                    <a href="https://kubsu.ru/">
-                        <img class="img-fluid" src="logokubsu.webp" alt="КубГУ" width="120" height="120">
-                    </a>
-                </li>
-                <!-- 4 -->
-                <li class="mb-2">
-                    <a href="/internal">4. Сокращенная ссылка на внутреннюю страницу</a>
-                </li>
-                <!-- 5 -->
-                <li class="mb-2">
-                    <a href="/">5. Сокращенная ссылка на главную страницу</a>
-                </li>
-                <!-- 6 -->
-                <li class="mb-2">
-                    <a href="#form-section">6. Ссылка на фрагмент текущей страницы</a>
-                </li>
-                <!-- 7 -->
-                <li class="mb-2">
-                    <a href="page.html?param1=value1&amp;param2=value2&amp;param3=value3">7. Ссылка с тремя параметрами в URL</a>
-                </li>
-                <!-- 8 -->
-                <li class="mb-2">
-                    <a href="page.html?id=123">8. Ссылка с параметром id в URL</a>
-                </li>
-                <!-- 9 -->
-                <li class="mb-2">
-                    <a href="about.html">9. Относительная ссылка на страницу в текущем каталоге</a>
-                </li>
-                <!-- 10 -->
-                <li class="mb-2">
-                    <a href="about/about.html">10. Относительная ссылка на страницу в каталоге about</a>
-                </li>
-                <!-- 11 -->
-                <li class="mb-2">
-                    <a href="../index.html">11. Относительная ссылка на страницу в каталоге уровнем выше</a>
-                </li>
-                <!-- 12 -->
-                <li class="mb-2">
-                    <a href="../../index.html">12. Относительная ссылка на страницу в каталоге двумя уровнями выше</a>
-                </li>
-                <!-- 13 -->
-                <li class="mb-2">
-                    13. Контекстная ссылка в тексте абзаца:
-                    <p class="mt-2">
-                        Для получения дополнительной информации посетите
-                        <a href="https://kubsu.ru/">официальный сайт Кубанского государственного университета</a>,
-                        где вы найдёте все необходимые сведения.
-                    </p>
-                </li>
-                <!-- 14 -->
-                <li class="mb-2">
-                    <a href="https://ru.wikipedia.org/wiki/HTML#История">14. Ссылка на фрагмент страницы стороннего сайта</a>
-                </li>
-                <!-- 15 -->
-                <li class="mb-2">
-                    15. Ссылки из областей картинки (HTML-тег map):
-                    <div class="mt-2 map-wrap">
-                        <img src="map123.jpg" alt="Карта ссылок" usemap="#imagemap" width="300" height="150">
-                        <map name="imagemap">
-                            <area shape="rect" coords="0,0,150,75" href="https://kubsu.ru/" alt="КубГУ">
-                            <area shape="circle" coords="225,75,50" href="https://ru.wikipedia.org/wiki" alt="Википедия (круг)">
-                        </map>
-                    </div>
-                </li>
-                <!-- 16 -->
-                <li class="mb-2">
-                    <a href="">16. Ссылка с пустым href</a>
-                </li>
-                <!-- 17 -->
-                <li class="mb-2">
-                    <a>17. Ссылка без href</a>
-                </li>
-                <!-- 18 -->
-                <li class="mb-2">
-                    <a href="https://kubsu.ru/" rel="nofollow">18. Ссылка, по которой запрещён переход поисковикам</a>
-                </li>
-                <!-- 19: у атрибута rel нет значения noindex, поэтому используется тег-комментарий Яндекса -->
-                <li class="mb-2">
-                    <!--noindex--><a href="https://kubsu.ru/">19. Ссылка, запрещённая для индексации</a><!--/noindex-->
-                </li>
-                <!-- 20 -->
-                <li class="mb-2">
-                    20. Нумерованный список ссылок с подписями title:
-                    <ol class="mt-2">
-                        <li><a href="https://kubsu.ru/" title="Главная страница КубГУ">КубГУ — главная</a></li>
-                        <li><a href="https://www.kubsu.ru/ru" title="Русская версия сайта КубГУ">КубГУ — русская версия</a></li>
-                        <li><a href="https://www.kubsu.ru/en" title="Английская версия сайта КубГУ">КубГУ — английская версия</a></li>
-                    </ol>
-                </li>
-                <!-- 21 -->
-                <li class="mb-2">
-                    <a href="ftp://user:password@ftp.example.com/file.txt">21. Ссылка на файл на сервере FTP с авторизацией</a>
-                </li>
-            </ul>
-        </section>
-
-        <section id="table-section" class="col-12 order-1 order-md-2 mb-4">
-            <h2 class="h3 mb-3">Таблица</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle">
-                    <caption>Учебная таблица</caption>
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Колонка 1</th>
-                            <th>Колонка 2</th>
-                            <th>Колонка 3</th>
-                            <th>Колонка 4</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowspan="2">Ячейка 1–2</td>
-                            <td>Ячейка 1–2</td>
-                            <td colspan="2">Объединённые ячейки</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка 2–2</td>
-                            <td>Ячейка 2–3</td>
-                            <td>Ячейка 2–4</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка 3–1</td>
-                            <td rowspan="2">Объединение по строкам</td>
-                            <td>Ячейка 3–3</td>
-                            <td>Ячейка 3–4</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка 4–1</td>
-                            <td colspan="2">Объединённые ячейки</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка 5–1</td>
-                            <td>Ячейка 5–2</td>
-                            <td>Ячейка 5–3</td>
-                            <td>Ячейка 5–4</td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">Итоговая строка таблицы</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="form-section" class="col-12 order-3 mb-4">
-            <h2 class="h3 mb-3">Форма</h2>
-            <form action="#" method="post">
-                <div class="row g-3">
-
-                    <div class="col-12 col-md-6">
-                        <label for="fullname" class="form-label">1. ФИО:</label>
-                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Иванов Иван Иванович">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label for="phone" class="form-label">2. Телефон:</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label for="email" class="form-label">3. E-mail:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.ru">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label for="birthdate" class="form-label">4. Дата рождения:</label>
-                        <input type="date" class="form-control" id="birthdate" name="birthdate">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <fieldset>
-                            <legend class="form-label fs-6">5. Пол:</legend>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                <label class="form-check-label" for="male">Мужской</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">Женский</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label for="languages" class="form-label">6. Любимый язык программирования (можно выбрать несколько):</label>
-                        <select class="form-select" id="languages" name="languages[]" multiple size="11">
-                            <option value="pascal">Pascal</option>
-                            <option value="c">C</option>
-                            <option value="cpp">C++</option>
-                            <option value="javascript">JavaScript</option>
-                            <option value="php">PHP</option>
-                            <option value="python">Python</option>
-                            <option value="java">Java</option>
-                            <option value="haskell">Haskell</option>
-                            <option value="clojure">Clojure</option>
-                            <option value="prolog">Prolog</option>
-                            <option value="scala">Scala</option>
-                        </select>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label for="bio" class="form-label">7. Биография:</label>
-                        <textarea class="form-control" id="bio" name="bio" rows="11" placeholder="Расскажите о себе..."></textarea>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="contract" name="contract" value="yes">
-                            <label class="form-check-label" for="contract">8. С контрактом ознакомлен(а)</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">9. Сохранить</button>
-                    </div>
-
+    <!-- Шапка сайта. site-header: свой класс (цвет фона), border-bottom: линия снизу от Bootstrap -->
+    <header class="site-header border-bottom">
+        <!-- Панель навигации. navbar: стили панели, navbar-expand-md: с ширины 768px меню раскладывается в строку.
+         aria-label подписывает меню для программ чтения с экрана -->
+        <nav class="navbar navbar-expand-md" aria-label="Основное меню">
+            <!-- Контейнер на всю ширину (container-fluid), содержимое по центру (justify-content-center),
+             боковые отступы: px-3 на телефоне, px-md-4 с 768px -->
+            <div class="container-fluid justify-content-center px-3 px-md-4">
+                <!-- Ссылка-бренд: navbar-brand (стиль логотипа), d-flex (элементы в строку),
+                 align-items-center (по центру по вертикали), gap-3 (расстояние между лого и текстом).
+                 href="#links" ведёт к секции со ссылками -->
+                <a class="navbar-brand d-flex align-items-center gap-3 " href="#links">
+                    <!-- Логотип: alt — описание для тех, кто не видит картинку; width и height — размер в пикселях -->
+                    <img src="Логотип_КубГУ.png" alt="Лого КубГУ" width="56" height="56">
+                    <!-- Название рядом с логотипом; fs-5 — размер шрифта 1.25rem -->
+                    <span class="fs-5">Задание 4</span>
+                </a>
+                <!-- Контейнер меню; navbar-collapse растягивает его и работает вместе с navbar-expand-md -->
+                <div class="navbar-collapse">
+                    <!-- Список пунктов меню; navbar-nav — стиль меню, ms-md-auto — с 768px прижимает вправо,
+                     text-center — текст по центру (заметно на телефоне, где пункты идут столбиком) -->
+                    <ul class="navbar-nav ms-md-auto text-center ">
+                        <!-- Пункт меню "Список ссылок": nav-item — элемент меню, nav-link — стиль ссылки,
+                         href="#links" — переход к элементу с id="links" -->
+                        <li class="nav-item"><a class="nav-link" href="#links">Список ссылок</a></li>
+                        <!-- Пункт меню "Таблица": переход к секции с id="table-section" -->
+                        <li class="nav-item"><a class="nav-link" href="#table-section">Таблица</a></li>
+                        <!-- Пункт меню "Форма": переход к секции с id="form-section" -->
+                        <li class="nav-item"><a class="nav-link" href="#form-section">Форма</a></li>
+                    </ul>
                 </div>
-            </form>
-        </section>
+            </div>
+        </nav>
+    </header>
 
-    </div>
-</main>
+    <!-- Основное содержимое страницы. container: центрирует и ограничивает ширину,
+     py-4: отступы сверху и снизу, flex-grow-1: занимает всё свободное место (прижимает подвал вниз) -->
+    <main class="container py-4 flex-grow-1">
+        <!-- Строка сетки Bootstrap: внутри неё лежат секции-колонки -->
+        <div class="row">
 
-<footer class="site-footer border-top py-4">
-    <div class="container">
-        &copy; Рамиль Айтимов
-    </div>
-</footer>
+            <!-- Секция со ссылками. id="links" — якорь для меню; col-12 — на всю ширину;
+             order-2 — на телефоне вторая по счёту; order-md-1 — с 768px первая; mb-4 — отступ снизу -->
+            <section id="links" class="col-12 order-2 order-md-1 mb-4 ">
+                <!-- Главный заголовок страницы; класс h2 уменьшает его вид, mb-3 — отступ снизу -->
+                <h1 class="h2 mb-3">Задание 1: Гиперссылки и форма</h1>
+                <!-- Подзаголовок списка; класс h3 задаёт размер как у h3 -->
+                <h2 class="h3 mb-3">Список гиперссылок</h2>
+                <!-- Маркированный список; ps-4 — отступ слева под маркеры -->
+                <ul class="ps-4">
+                    <!-- 1) Пункт списка; mb-2 — небольшой отступ снизу -->
+                    <li class="mb-2">
+                        <!-- Абсолютная ссылка (полный адрес) по протоколу http -->
+                        <a href="http://kubsu.ru/">1. Абсолютная гиперссылка на главную страницу kubsu.ru (http)</a>
+                    </li>
+                    <!-- 2) -->
+                    <li class="mb-2">
+                        <!-- Абсолютная ссылка по протоколу https (защищённое соединение) -->
+                        <a href="https://kubsu.ru/">2. Абсолютная гиперссылка на главную страницу kubsu.ru (https)</a>
+                    </li>
+                    <!-- 3) -->
+                    <li class="mb-2">
+                        3. Ссылка-изображение:
+                        <!-- Ссылка, внутри которой картинка: клик по картинке открывает сайт -->
+                        <a href="https://kubsu.ru/">
+                            <!-- img-fluid: картинка не выходит за границы блока; alt — описание; width/height — размер -->
+                            <img class="img-fluid" src="logokubsu.webp" alt="КубГУ" width="120" height="120">
+                        </a>
+                    </li>
+                    <!-- 4) -->
+                    <li class="mb-2">
+                        <!-- Сокращённая ссылка: путь от корня сайта, без домена -->
+                        <a href="/internal">4. Сокращенная ссылка на внутреннюю страницу</a>
+                    </li>
+                    <!-- 5) -->
+                    <li class="mb-2">
+                        <!-- Одна косая черта "/" — главная страница текущего сайта -->
+                        <a href="/">5. Сокращенная ссылка на главную страницу</a>
+                    </li>
+                    <!-- 6) -->
+                    <li class="mb-2">
+                        <!-- Ссылка-якорь: прокручивает страницу к элементу с id="form-section" -->
+                        <a href="#form-section">6. Ссылка на фрагмент текущей страницы</a>
+                    </li>
+                    <!-- 7) -->
+                    <li class="mb-2">
+                        <!-- Параметры передаются после "?" и разделяются "&"; в HTML "&" пишется как &amp; -->
+                        <a href="page.html?param1=value1&amp;param2=value2&amp;param3=value3">7. Ссылка с тремя
+                            параметрами в URL</a>
+                    </li>
+                    <!-- 8) -->
+                    <li class="mb-2">
+                        <!-- Один параметр id со значением 123 -->
+                        <a href="page.html?id=123">8. Ссылка с параметром id в URL</a>
+                    </li>
+                    <!-- 9) -->
+                    <li class="mb-2">
+                        <!-- Относительная ссылка: файл лежит в той же папке, что и эта страница -->
+                        <a href="about.html">9. Относительная ссылка на страницу в текущем каталоге</a>
+                    </li>
+                    <!-- 10) -->
+                    <li class="mb-2">
+                        <!-- Относительная ссылка на файл во вложенной папке about -->
+                        <a href="about/about.html">10. Относительная ссылка на страницу в каталоге about</a>
+                    </li>
+                    <!-- 11) -->
+                    <li class="mb-2">
+                        <!-- ".." означает "на один уровень выше" -->
+                        <a href="../index.html">11. Относительная ссылка на страницу в каталоге уровнем выше</a>
+                    </li>
+                    <!-- 12) -->
+                    <li class="mb-2">
+                        <!-- "../.." — на два уровня выше -->
+                        <a href="../../index.html">12. Относительная ссылка на страницу в каталоге двумя уровнями
+                            выше</a>
+                    </li>
+                    <!-- 13) -->
+                    <li class="mb-2">
+                        13. Контекстная ссылка в тексте абзаца:
+                        <!-- Абзац текста; mt-2 — отступ сверху -->
+                        <p class="mt-2">
+                            Для получения дополнительной информации посетите
+                            <!-- Ссылка прямо внутри предложения (контекстная) -->
+                            <a href="https://kubsu.ru/">официальный сайт Кубанского государственного университета</a>,
+                            где вы найдёте все необходимые сведения.
+                        </p>
+                    </li>
+                    <!-- 14) -->
+                    <li class="mb-2">
+                        <!-- Ссылка на раздел "История" чужой страницы: после "#" указан id нужного фрагмента -->
+                        <a href="https://ru.wikipedia.org/wiki/HTML#История">14. Ссылка на фрагмент страницы стороннего
+                            сайта</a>
+                    </li>
+                    <!-- 15) -->
+                    <li class="mb-2">
+                        15. Ссылки из областей картинки (HTML-тег map):
+                        <!-- Блок-обёртка; mt-2 — отступ сверху; map-wrap (свой класс) — прокрутка, если картинка не помещается -->
+                        <div class="mt-2 map-wrap">
+                            <!-- Картинка-карта; usemap="#imagemap" связывает её с тегом map по имени -->
+                            <img src="map123.jpg" alt="Карта ссылок" usemap="#imagemap" width="300" height="150">
+                            <!-- Карта кликабельных областей; name должен совпадать с usemap -->
+                            <map name="imagemap">
+                                <!-- Прямоугольник: координаты x1,y1,x2,y2 (левая верхняя четверть картинки) -->
+                                <area shape="rect" coords="0,0,150,75" href="https://kubsu.ru/" alt="КубГУ">
+                                <!-- Круг: координаты центра x,y и радиус -->
+                                <area shape="circle" coords="225,75,50" href="https://ru.wikipedia.org/wiki"
+                                    alt="Википедия (круг)">
+                            </map>
+                        </div>
+                    </li>
+                    <!-- 16) -->
+                    <li class="mb-2">
+                        <!-- Пустой href: ссылка ведёт на текущую страницу (перезагружает её) -->
+                        <a href="">16. Ссылка с пустым href</a>
+                    </li>
+                    <!-- 17) -->
+                    <li class="mb-2">
+                        <!-- Тег a без href — не ссылка, а обычный текст, клик ничего не делает -->
+                        <a>17. Ссылка без href</a>
+                    </li>
+                    <!-- 18) -->
+                    <li class="mb-2">
+                        <!-- rel="nofollow" просит поисковики не переходить по этой ссылке -->
+                        <a href="https://kubsu.ru/" rel="nofollow">18. Ссылка, по которой запрещён переход
+                            поисковикам</a>
+                    </li>
+                    <!-- 19: у атрибута rel нет значения noindex, поэтому используется тег-комментарий Яндекса -->
+                    <li class="mb-2">
+                        <!-- Комментарии noindex/ /noindex запрещают Яндексу индексировать текст между ними -->
+                        <!--noindex--><a href="https://kubsu.ru/">19. Ссылка, запрещённая для
+                            индексации</a><!--/noindex-->
+                    </li>
+                    <!-- 20) -->
+                    <li class="mb-2">
+                        20. Нумерованный список ссылок с подписями title:
+                        <!-- Нумерованный список внутри пункта; mt-2 — отступ сверху -->
+                        <ol class="mt-2">
+                            <!-- title — подсказка, которая появляется при наведении мыши на ссылку -->
+                            <li><a href="https://kubsu.ru/" title="Главная страница КубГУ">КубГУ — главная</a></li>
+                            <li><a href="https://www.kubsu.ru/ru" title="Русская версия сайта КубГУ">КубГУ — русская
+                                    версия</a></li>
+                            <li><a href="https://www.kubsu.ru/en" title="Английская версия сайта КубГУ">КубГУ —
+                                    английская версия</a></li>
+                        </ol>
+                    </li>
+                    <!-- 21) -->
+                    <li class="mb-2">
+                        <!-- Ссылка по протоколу FTP с логином (user) и паролем (password) в адресе -->
+                        <a href="ftp://user:password@ftp.example.com/file.txt">21. Ссылка на файл на сервере FTP с
+                            авторизацией</a>
+                    </li>
+                </ul>
+            </section>
 
-<!-- Bootstrap JS (для выпадающего меню на телефоне) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Секция с таблицей. order-1 — на телефоне первая; order-md-2 — с 768px вторая -->
+            <section id="table-section" class="col-12 order-1 order-md-2 mb-4">
+                <!-- Заголовок секции -->
+                <h2 class="h3 mb-3">Таблица</h2>
+                <!-- Обёртка: если таблица шире экрана, появляется горизонтальная прокрутка -->
+                <div class="table-responsive">
+                    <!-- table — стиль таблицы Bootstrap; table-bordered — границы ячеек;
+                     align-middle — содержимое по центру ячейки по вертикали -->
+                    <table class="table table-bordered align-middle">
+                        <!-- Шапка таблицы; table-primary — светло-синий цвет -->
+                        <thead class="table-primary">
+                            <!-- Строка таблицы -->
+                            <tr>
+                                <!-- th — ячейка-заголовок колонки -->
+                                <th>Колонка 1</th>
+                                <th>Колонка 2</th>
+                                <th>Колонка 3</th>
+                                <th>Колонка 4</th>
+                            </tr>
+                        </thead>
+                        <!-- Тело таблицы (по его строкам в CSS задан чередующийся цвет) -->
+                        <tbody>
+                            <!-- Строка 1 -->
+                            <tr>
+                                <!-- td — обычная ячейка; rowspan="2" — занимает две строки по вертикали -->
+                                <td rowspan="2">Ячейка 1–2</td>
+                                <td>Ячейка 1–2</td>
+                                <!-- colspan="2" — занимает две колонки по горизонтали -->
+                                <td colspan="2">Объединённые ячейки</td>
+                            </tr>
+                            <!-- Строка 2 (первая ячейка уже занята rowspan из строки 1, поэтому здесь три ячейки) -->
+                            <tr>
+                                <td>Ячейка 2–2</td>
+                                <td>Ячейка 2–3</td>
+                                <td>Ячейка 2–4</td>
+                            </tr>
+                            <!-- Строка 3 -->
+                            <tr>
+                                <td>Ячейка 3–1</td>
+                                <!-- Ячейка на две строки вниз (строки 3 и 4) -->
+                                <td rowspan="2">Объединение по строкам</td>
+                                <td>Ячейка 3–3</td>
+                                <td>Ячейка 3–4</td>
+                            </tr>
+                            <!-- Строка 4 (вторая колонка занята rowspan из строки 3) -->
+                            <tr>
+                                <td>Ячейка 4–1</td>
+                                <td colspan="2">Объединённые ячейки</td>
+                            </tr>
+                            <!-- Строка 5: обычные четыре ячейки -->
+                            <tr>
+                                <td>Ячейка 5–1</td>
+                                <td>Ячейка 5–2</td>
+                                <td>Ячейка 5–3</td>
+                                <td>Ячейка 5–4</td>
+                            </tr>
+                            <!-- Строка 6: одна ячейка на все четыре колонки -->
+                            <tr>
+                                <td colspan="4">Итоговая строка таблицы</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Секция с формой. order-3 — всегда третья по порядку -->
+            <section id="form-section" class="col-12 order-3 mb-4 ">
+                <!-- Заголовок секции -->
+                <h2 class="h3 mb-3">Форма</h2>
+                <!-- Форма; action="#" — данные никуда не отправляются (заглушка); method="post" — способ отправки -->
+                <form action="#" method="post">
+                    <!-- Сетка внутри формы; g-3 — расстояния между полями -->
+                    <div class="row g-3">
+
+                        <!-- 1) Колонка на всю ширину: поля идут друг под другом -->
+                        <div class="col-12  ">
+                            <!-- Подпись; for должен совпадать с id поля: клик по подписи ставит курсор в поле -->
+                            <label for="fullname" class="form-label">1. ФИО:</label>
+                            <!-- Текстовое поле; form-control — стиль Bootstrap; name — имя при отправке; placeholder — серая подсказка -->
+                            <input type="text" class="form-control" id="fullname" name="fullname"
+                                placeholder="Иванов Иван Иванович">
+                        </div>
+
+                        <!-- 2) Телефон -->
+                        <div class="col-12  ">
+                            <label for="phone" class="form-label">2. Телефон:</label>
+                            <!-- type="tel" — на телефоне откроется цифровая клавиатура -->
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                placeholder="+7 (999) 123-45-67">
+                        </div>
+
+                        <!-- 3) E-mail -->
+                        <div class="col-12 ">
+                            <label for="email" class="form-label">3. E-mail:</label>
+                            <!-- type="email" — браузер проверяет, что введён адрес с символом @ -->
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="example@mail.ru">
+                        </div>
+
+                        <!-- 4) Дата рождения -->
+                        <div class="col-12  ">
+                            <label for="birthdate" class="form-label">4. Дата рождения:</label>
+                            <!-- type="date" — поле с календарём -->
+                            <input type="date" class="form-control" id="birthdate" name="birthdate">
+                        </div>
+
+                        <!-- 5) Пол -->
+                        <div class="col-12  ">
+                            <!-- fieldset объединяет связанные поля в группу -->
+                            <fieldset>
+                                <!-- legend — подпись группы; form-label и fs-6 — стиль Bootstrap -->
+                                <legend class="form-label fs-6">5. Пол:</legend>
+                                <!-- form-check — блок переключателя; form-check-inline — ставит переключатели в строку -->
+                                <div class="form-check form-check-inline">
+                                    <!-- Радиокнопка; одинаковый name="gender" позволяет выбрать только один вариант -->
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                    <label class="form-check-label" for="male">Мужской</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="female"
+                                        value="female">
+                                    <label class="form-check-label" for="female">Женский</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- 6) Язык программирования -->
+                        <div class="col-12  ">
+                            <label for="languages" class="form-label">6. Любимый язык программирования (можно выбрать
+                                несколько):</label>
+                            <!-- Список выбора; form-select — стиль Bootstrap; multiple — можно выбрать несколько (Ctrl + клик);
+                             size="11" — сразу показывает 11 строк; languages[] — передаёт массив значений -->
+                            <select class="form-select" id="languages" name="languages[]" multiple size="11">
+                                <!-- option — вариант списка; value — значение, которое уйдёт на сервер -->
+                                <option value="pascal">Pascal</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="php">PHP</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="haskell">Haskell</option>
+                                <option value="clojure">Clojure</option>
+                                <option value="prolog">Prolog</option>
+                                <option value="scala">Scala</option>
+                            </select>
+                        </div>
+
+                        <!-- 7) Биография -->
+                        <div class="col-12  ">
+                            <label for="bio" class="form-label">7. Биография:</label>
+                            <!-- Многострочное поле; rows="11" — высота в строках -->
+                            <textarea class="form-control" id="bio" name="bio" rows="11"
+                                placeholder="Расскажите о себе..."></textarea>
+                        </div>
+
+                        <!-- 8) Согласие с контрактом -->
+                        <div class="col-12 ">
+                            <div class="form-check">
+                                <!-- Флажок (чекбокс): можно поставить или снять -->
+                                <input class="form-check-input" type="checkbox" id="contract" name="contract"
+                                    value="yes">
+                                <label class="form-check-label" for="contract">8. С контрактом ознакомлен(а)</label>
+                            </div>
+                        </div>
+
+                        <!-- 9) Кнопка отправки -->
+                        <div class="col-12 ">
+                            <!-- type="submit" — отправляет форму; btn btn-primary — синяя кнопка Bootstrap -->
+                            <button type="submit" class="btn btn-primary">9. Сохранить</button>
+                        </div>
+
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Подвал сайта. site-footer — свой класс (цвет фона), border-top — линия сверху, py-4 — отступы сверху и снизу -->
+    <footer class="site-footer border-top py-4">
+        <!-- Контейнер на всю ширину окна -->
+        <div class="container-fluid">
+            <!-- &copy; — символ © -->
+            &copy; Рамиль Айтимов
+        </div>
+    </footer>
+
 </body>
 
 </html>
-
